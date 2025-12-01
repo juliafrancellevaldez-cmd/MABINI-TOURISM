@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discover Mabini, Batangas</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      color: #333;
+      padding-top: 60px; /* Added padding to account for fixed nav */
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    /* Navigation - Fixed at the top */
+    nav {
+      background-color: rgba(0, 77, 64, 0.95);
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      margin-right: 30px;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+      border-radius: 5px;
+    }
+
+    .nav-links {
+      flex: 1;
+      text-align: center;
+    }
+
+    nav a {
+      color: white; 
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffca28;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+
+    header h1 {
+      font-size: 3.5em;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      background-color: #ffca28;
+      color: #000;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #ffc107;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 50px auto;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    section h2 {
+      color: #00695c;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    section ul {
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+
+    /* Attractions Cards */
+    .attractions-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .attraction-card {
+      width: calc(50% - 15px);
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .attraction-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      color: #00695c;
+      margin-bottom: 10px;
+    }
+
+    .card-content p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* Contact section styling - Centered */
+    .contact-info {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .contact-item {
+      margin-bottom: 20px;
+      font-size: 1.2em;
+    }
+
+    .contact-label {
+      font-weight: bold;
+      color: #00695c;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .contact-value {
+      font-size: 1.1em;
+    }
+
+    footer {
+      text-align: center;
+      background-color: rgba(0, 77, 64, 0.9);
+      color: white;
+      padding: 25px 0;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 50px;
+      }
+      
+      header h1 {
+        font-size: 2.2em;
+        padding: 15px;
+      }
+
+      .cta-button {
+        font-size: 1em;
+        padding: 12px 24px;
+      }
+
+      nav {
+        padding: 10px;
+      }
+      
+      .nav-container {
+        flex-direction: column;
+      }
+      
+      .logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+      
+      .logo img {
+        height: 35px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 10px;
+        font-size: 1em;
+      }
+
+      section {
+        margin: 30px 10px;
+        padding: 25px;
+      }
+
+      .attraction-card {
+        width: 100%;
+      }
+      
+      .contact-item {
+        font-size: 1.1em;
+      }
+      
+      .contact-value {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation - Fixed at the top of the page -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <!-- Replace this with your actual logo -->
+        <img src="logo.jpg" alt="Mabini Tourism Logo">
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#attractions">Attractions</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section / Landing Banner -->
+  <header>
+    <h1>Welcome to Mabini, Batangas</h1>
+    <p style="font-size: 1.2em; margin-bottom: 30px;">Ready to explore Mabini? For travel information, bookings, and inquiries, contact the Mabini Tourism Office or your trusted travel agency. Dive into adventure and discover the hidden gem of Mabini!</p>
+    <a href="#about" class="cta-button">Discover More</a>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Mabini</h2>
+    <p>
+      Mabini is a scenic town in Batangas, Philippines, famous for its rocky beaches, coral reefs, and breathtaking underwater scenery. It's the home of Anilao — a hotspot for divers worldwide. Mabini is a haven for nature lovers, offering hiking, snorkeling, diving, and tranquil views of the sea and mountains.
+    </p>
+  </section>
+
+  <!-- Attractions Section -->
+  <section id="attractions">
+    <h2>Top Attractions</h2>
+    <div class="attractions-container">
+      <!-- Anilao Card -->
+      <div class="attraction-card">
+        <img src="anilao.jpg" alt="Anilao Diving" class="card-image">
+        <div class="card-content">
+          <h3>Anilao</h3>
+          <p>A diver's paradise with vibrant marine life and coral gardens. Known as the birthplace of scuba diving in the Philippines, Anilao offers some of the best underwater experiences in the country.</p>
+        </div>
+      </div>
+
+      <!-- Mt. Gulugod Baboy Card -->
+      <div class="attraction-card">
+        <img src="gulugod b.jpg" alt="Mt. Gulugod Baboy" class="card-image">
+        <div class="card-content">
+          <h3>Mt. Gulugod Baboy</h3>
+          <p>A beginner-friendly mountain offering panoramic sea views of Batangas Bay. The name means "Pig's Spine" in English, referring to its series of rolling hills.</p>
+        </div>
+      </div>
+
+      <!-- Sombrero Island Card -->
+      <div class="attraction-card">
+        <img src="sombrero-island.jpg" alt="Sombrero Island" class="card-image">
+        <div class="card-content">
+          <h3>Sombrero Island</h3>
+          <p>A hat-shaped island with white sand and clear waters. Perfect for swimming, snorkeling, and beach picnics. The island gets its name from its distinctive shape.</p>
+        </div>
+      </div>
+
+      <!-- Sea Spring Card -->
+      <div class="attraction-card">
+        <img src="sea spring.jpg" alt="Sea Spring" class="card-image">
+        <div class="card-content">
+          <h3>Sea Spring</h3>
+          <p>Nature-aligned accommodations with peaceful vibes. These resorts offer sustainable tourism experiences while providing comfort and connection to the natural environment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-label">Cellphone Number</span>
+        <span class="contact-value"> 09078940437</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <span class="contact-value">mabinitourism@gmail.com</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Mabini Tourism. All rights reserved.
+  </footer>
+
+</body>
+</html>
